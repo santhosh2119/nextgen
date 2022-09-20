@@ -24,7 +24,9 @@ class CustomService extends StatelessWidget {
       children: [
         Padding(
           padding: status
-              ? const EdgeInsets.symmetric(horizontal: 10.0)
+              ? const EdgeInsets.symmetric(
+                  horizontal: 10.0,
+                )
               : const EdgeInsets.symmetric(horizontal: 0.0),
           child: SectionTitle(
             title: title,
@@ -44,7 +46,7 @@ class CustomService extends StatelessWidget {
         Container(
           margin: const EdgeInsets.only(top: 5),
           height: status
-              ? MediaQuery.of(context).size.height * 0.8
+              ? MediaQuery.of(context).size.height * 0.9
               : MediaQuery.of(context).size.height * 0.12,
           child: ListView.builder(
             scrollDirection: status ? Axis.vertical : Axis.horizontal,

@@ -12,8 +12,8 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->F:\nextgen\nextgen\android\app\src\main\AndroidManifest.xml:4:5-66
-14-->F:\nextgen\nextgen\android\app\src\main\AndroidManifest.xml:4:22-64
+14-->F:\nextgen1\android\app\src\main\AndroidManifest.xml:4:5-66
+14-->F:\nextgen1\android\app\src\main\AndroidManifest.xml:4:22-64
 15
 16    <application
 17        android:name="android.app.Application"

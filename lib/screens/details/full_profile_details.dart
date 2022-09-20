@@ -231,6 +231,17 @@ class FullProfileDetails extends StatelessWidget {
                                   data.status == "1" ? "Done" : "Pending",
                                   lastBorder: false),
                             ),
+                            const SizedBox(
+                              height: 25,
+                            ),
+                            data.status == "1"
+                                ? SizedBox()
+                                : CommonHelper().buttonOrange("Notify", () {}),
+                            const SizedBox(height: 8),
+                            data.status == "1"
+                                ? SizedBox()
+                                : CommonHelper()
+                                    .buttonOrange("Close this Order", () {})
                           ]),
                     ),
                     //

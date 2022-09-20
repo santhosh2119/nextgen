@@ -1,44 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\nextgen\\nextgen\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "F:\\nextgen1\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
-                {
-                    "source": "F:\\nextgen\\nextgen\\android\\app\\src\\main\\res\\values\\styles.xml",
-                    "from": {
-                        "startLines": "3,14",
-                        "startColumns": "4,4",
-                        "startOffsets": "173,807",
-                        "endLines": "7,18",
-                        "endColumns": "12,12",
-                        "endOffsets": "465,1030"
-                    },
-                    "to": {
-                        "startLines": "95,100",
-                        "startColumns": "4,4",
-                        "startOffsets": "5566,5863",
-                        "endLines": "99,104",
-                        "endColumns": "12,12",
-                        "endOffsets": "5858,6086"
-                    }
-                },
-                {
-                    "source": "F:\\nextgen\\nextgen\\android\\app\\src\\main\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "2,3",
-                        "startColumns": "4,1",
-                        "startOffsets": "55,109",
-                        "endColumns": "56,43",
-                        "endOffsets": "107,151"
-                    },
-                    "to": {
-                        "startLines": "13,16",
-                        "startColumns": "4,4",
-                        "startOffsets": "611,800",
-                        "endColumns": "56,46",
-                        "endOffsets": "663,842"
-                    }
-                },
                 {
                     "source": "C:\\Users\\Rakesh\\.gradle\\caches\\transforms-2\\files-2.1\\122df2e57d294d1a53db26bbc3b813c1\\core-1.6.0\\res\\values\\values.xml",
                     "from": {
@@ -59,6 +23,25 @@
                     }
                 },
                 {
+                    "source": "F:\\nextgen1\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "from": {
+                        "startLines": "3,14",
+                        "startColumns": "4,4",
+                        "startOffsets": "173,807",
+                        "endLines": "7,18",
+                        "endColumns": "12,12",
+                        "endOffsets": "465,1030"
+                    },
+                    "to": {
+                        "startLines": "95,100",
+                        "startColumns": "4,4",
+                        "startOffsets": "5566,5863",
+                        "endLines": "99,104",
+                        "endColumns": "12,12",
+                        "endOffsets": "5858,6086"
+                    }
+                },
+                {
                     "source": "C:\\Users\\Rakesh\\.gradle\\caches\\transforms-2\\files-2.1\\03c633e46d75bfb21f082f0417f55161\\jetified-window-1.0.0-beta04\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2,7,8,9,10,11,19,23,34,51",
@@ -75,6 +58,23 @@
                         "endLines": "7,8,9,10,74,125,129,278,295,303",
                         "endColumns": "11,59,51,44,59,24,24,24,24,24",
                         "endOffsets": "289,349,401,446,4491,7401,7598,16559,17673,18066"
+                    }
+                },
+                {
+                    "source": "F:\\nextgen1\\android\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,1",
+                        "startOffsets": "55,109",
+                        "endColumns": "56,43",
+                        "endOffsets": "107,151"
+                    },
+                    "to": {
+                        "startLines": "13,16",
+                        "startColumns": "4,4",
+                        "startOffsets": "611,800",
+                        "endColumns": "56,46",
+                        "endOffsets": "663,842"
                     }
                 }
             ]

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nextgen/screens/dashboard/dashboard.dart';
+import 'package:nextgen/screens/home/home.dart';
 
 import '../../../utils/colors.dart';
 
@@ -20,11 +22,28 @@ class DrawerSheet extends StatelessWidget {
           leading: const Icon(
             Icons.home,
           ),
-          title: const Text('Page 1'),
+          title: const Text('Home'),
           onTap: () {
-            Navigator.pop(context);
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Home()));
           },
         ),
+        Divider(
+          color: Colors.black,
+        ),
+        ListTile(
+          leading: const Icon(
+            Icons.currency_rupee,
+          ),
+          title: const Text('Dashboard'),
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => Dashboard()));
+          },
+        ),
+        // Divider(
+        //   color: Colors.black,
+        // )
       ],
     );
   }

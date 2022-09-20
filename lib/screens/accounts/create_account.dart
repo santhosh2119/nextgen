@@ -27,23 +27,39 @@ class _CreateAccountState extends State<CreateAccount> {
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 25),
+            padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 15),
             child: Form(
               key: _formKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  CommonHelper().labelCommon("Email"),
+                  CommonHelper().labelCommon("Full Name"),
                   CustomInput(
                     controller: emailController,
                     validation: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your email';
+                        return 'Please enter your Full Name';
                       }
                       return null;
                     },
-                    hintText: "Email",
-                    icon: Icons.email,
+                    hintText: "Full Name",
+                    // // icon: Icons.email,
+                    textInputAction: TextInputAction.next,
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  CommonHelper().labelCommon("Mobile No"),
+                  CustomInput(
+                    controller: emailController,
+                    validation: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your Mobile No';
+                      }
+                      return null;
+                    },
+                    hintText: "Mobile No",
+                    // // icon: Icons.email,
                     textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(
@@ -59,55 +75,116 @@ class _CreateAccountState extends State<CreateAccount> {
                       return null;
                     },
                     hintText: "Email",
-                    icon: Icons.email,
+                    // icon: Icons.email,
                     textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(
                     height: 8,
                   ),
-                  CommonHelper().labelCommon("Email"),
+                  CommonHelper().labelCommon("Address"),
                   CustomInput(
                     controller: emailController,
                     validation: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your email';
+                        return 'Please enter your Address';
                       }
                       return null;
                     },
-                    hintText: "Email",
-                    icon: Icons.email,
+                    hintText: "Address",
+                    // // // icon: Icons.email,
                     textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(
                     height: 8,
                   ),
-                  CommonHelper().labelCommon("Email"),
+                  CommonHelper().labelCommon("Device"),
                   CustomInput(
                     controller: emailController,
                     validation: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your email';
+                        return 'Please enter your Device';
                       }
                       return null;
                     },
-                    hintText: "Email",
-                    icon: Icons.email,
+                    hintText: "Device",
+                    // // icon: Icons.email,
                     textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(
                     height: 8,
                   ),
-                  CommonHelper().labelCommon("Email"),
+                  CommonHelper().labelCommon("Serial Number"),
                   CustomInput(
                     controller: emailController,
                     validation: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Please enter your email';
+                        return 'Please enter your Serial Number';
                       }
                       return null;
                     },
-                    hintText: "Email",
-                    icon: Icons.email,
+                    hintText: "Serial Number",
+                    // icon: Icons.email,
+                    textInputAction: TextInputAction.next,
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  CommonHelper().labelCommon("Problem"),
+                  CustomInput(
+                    controller: emailController,
+                    validation: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your Problem';
+                      }
+                      return null;
+                    },
+                    hintText: "Problem",
+                    // icon: Icons.email,
+                    textInputAction: TextInputAction.next,
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  CommonHelper().labelCommon("Device Description"),
+                  CustomInput(
+                    controller: emailController,
+                    validation: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your Device Description';
+                      }
+                      return null;
+                    },
+                    hintText: "Advance",
+                    // icon: Icons.email,
+                    textInputAction: TextInputAction.next,
+                  ),
+                  CommonHelper().labelCommon("Advance"),
+                  CustomInput(
+                    controller: emailController,
+                    validation: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your Advance';
+                      }
+                      return null;
+                    },
+                    hintText: "Advance",
+                    // icon: Icons.email,
+                    textInputAction: TextInputAction.next,
+                  ),
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  CommonHelper().labelCommon("Estimation"),
+                  CustomInput(
+                    controller: emailController,
+                    validation: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your Estimation';
+                      }
+                      return null;
+                    },
+                    hintText: "Estimation",
+                    // icon: Icons.email,
                     textInputAction: TextInputAction.next,
                   ),
                   const SizedBox(

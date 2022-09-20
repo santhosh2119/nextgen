@@ -462,6 +462,15 @@ class _SearchScreenState extends State<SearchScreen> {
                                                         ),
                                                       ]),
                                                 ),
+                                          data[0].status == "1"
+                                              ? SizedBox()
+                                              : CommonHelper().buttonOrange(
+                                                  "Notify", () {}),
+                                          const SizedBox(height: 8),
+                                          data[0].status == "1"
+                                              ? SizedBox()
+                                              : CommonHelper().buttonOrange(
+                                                  "Close this Order", () {})
                                           //
                                         ]),
                                   )
