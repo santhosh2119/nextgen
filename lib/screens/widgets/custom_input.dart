@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../utils/colors.dart';
 
+// ignore: must_be_immutable
 class CustomInput extends StatelessWidget {
   final String hintText;
   final Function(String)? onChanged;

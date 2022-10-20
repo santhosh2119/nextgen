@@ -6,9 +6,8 @@ class Api {
   static const orders = baseUrl + "orders.php";
   static const antiVirus = baseUrl + "antivirus.php";
   static const search = baseUrl + "search.php";
-  static const login = baseUrl + "login";
-  static const home = baseUrl + "home";
-  static const resetpassword = baseUrl + "passwordotp";
-  static const updatepassword = baseUrl + "passwordupdate";
-  static const addToCart = baseUrl + "addtocart";
+  static const dueList = baseUrl + "duelist.php";
+  static const usersLIst = baseUrl + "userslist.php";
+  static const GetTotal = baseUrl + "gettotal.php";
+  static const GetUsersServices = baseUrl + "getusersservices.php";
 }

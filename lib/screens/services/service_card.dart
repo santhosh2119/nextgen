@@ -41,7 +41,7 @@ class ServiceCard extends StatelessWidget {
           ),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
-                  primary: ConstantColors().primaryColor, elevation: 0),
+                  backgroundColor: ConstantColors().primaryColor, elevation: 0),
               onPressed: pressed,
               child: Text(
                 buttonText,
@@ -73,7 +73,7 @@ class ServiceCardContents extends StatelessWidget {
           radius: 25,
           child: Text(name[0].toString().toUpperCase()),
         ),
-       const SizedBox(
+        const SizedBox(
           width: 10,
         ),
         Expanded(

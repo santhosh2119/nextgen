@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nextgen/models/service_model.dart';
-import 'package:nextgen/screens/details/full_profile_details.dart';
+import 'package:nextgen/screens/details/service_details_screen.dart';
 
 import 'all_services.dart';
 import '../widgets/section_title.dart';
@@ -22,31 +22,33 @@ class CustomService extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: status
-              ? const EdgeInsets.symmetric(
-                  horizontal: 10.0,
-                )
-              : const EdgeInsets.symmetric(horizontal: 0.0),
-          child: SectionTitle(
-            title: title,
-            pressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => AllServices(
-                            title: title,
-                          )));
-            },
-          ),
-        ),
+        status
+            ? SizedBox()
+            : Padding(
+                padding: status
+                    ? const EdgeInsets.symmetric(
+                        horizontal: 10.0,
+                      )
+                    : const EdgeInsets.symmetric(horizontal: 0.0),
+                child: SectionTitle(
+                  title: title,
+                  pressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AllServices(
+                                  title: title,
+                                )));
+                  },
+                ),
+              ),
         SizedBox(
           height: 10,
         ),
         Container(
           margin: const EdgeInsets.only(top: 5),
           height: status
-              ? MediaQuery.of(context).size.height * 0.9
+              ? MediaQuery.of(context).size.height * 0.8
               : MediaQuery.of(context).size.height * 0.12,
           child: ListView.builder(
             scrollDirection: status ? Axis.vertical : Axis.horizontal,
@@ -64,7 +66,10 @@ class CustomService extends StatelessWidget {
                         context,
                         MaterialPageRoute<void>(
                           builder: (BuildContext context) =>
-                              FullProfileDetails(data: data[index]),
+                              ServiceDetailsScreen(
+                            mobile: data[index].mobile,
+                            name: data[index].customerName,
+                          ),
                         ),
                       );
                       // Provider.of<ServiceDetailsService>(context, listen: false)
@@ -84,7 +89,10 @@ class CustomService extends StatelessWidget {
                           context,
                           MaterialPageRoute<void>(
                             builder: (BuildContext context) =>
-                                FullProfileDetails(data: data[index]),
+                                ServiceDetailsScreen(
+                              mobile: data[index].mobile,
+                              name: data[index].customerName,
+                            ),
                           ),
                         );
                         // provider.saveOrUnsave(

@@ -40,6 +40,7 @@ class _AllServicesState extends State<AllServices> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(title: Text(widget.title)),
         body: _loading
             ? const LoadingScreen()
             : CustomService(

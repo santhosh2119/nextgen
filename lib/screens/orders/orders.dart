@@ -5,6 +5,7 @@ import 'package:nextgen/screens/widgets/loading.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/service_completed_provider.dart';
+import '../widgets/drawer.dart';
 
 class OrdersScreen extends StatefulWidget {
   const OrdersScreen({Key? key}) : super(key: key);
@@ -34,6 +35,12 @@ class _OrdersScreenState extends State<OrdersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Orders"),
+      ),
+      drawer: Drawer(
+        child: DrawerSheet(),
+      ),
       body: _loading
           ? const LoadingScreen()
           : AllOrderScreen(

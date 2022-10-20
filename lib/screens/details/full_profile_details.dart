@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:nextgen/models/due_list_model.dart';
 import 'package:nextgen/utils/colors.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-import '../../models/service_model.dart';
-import '../../utils/colors.dart';
 import '../widgets/app_bar.dart';
 
+// ignore: must_be_immutable
 class FullProfileDetails extends StatelessWidget {
-  final Service data;
+  final DueList data;
 
   FullProfileDetails({Key? key, required this.data}) : super(key: key);
   void __bottomSheet(context, number) {
@@ -51,9 +51,7 @@ class FullProfileDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: cc.bgColor,
-      appBar: CommonHelper().appbarCommon('Order Details', context, () {
-        Navigator.pop(context);
-      }),
+      appBar: AppBar(title: Text(data.customerName)),
       body: SafeArea(
         child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
@@ -201,6 +199,18 @@ class FullProfileDetails extends StatelessWidget {
                             Container(
                               child: CommonHelper().bRow(
                                   'Advance', data.advanceAmount.toString()),
+                            ),
+                            Container(
+                              child: CommonHelper()
+                                  .bRow('Total', data.billAmount.toString()),
+                            ),
+                            Container(
+                              child: CommonHelper().bRow(
+                                  'Net Amount', data.netAmount.toString()),
+                            ),
+                            Container(
+                              child: CommonHelper().bRow(
+                                  'Due Amount', data.dueAmount.toString()),
                             ),
 
                             Container(

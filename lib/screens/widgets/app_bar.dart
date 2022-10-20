@@ -26,7 +26,8 @@ class CommonHelper {
     );
   }
 
-  bRow(String title, String text, {bool lastBorder = true}) {
+  bRow(String title, String text,
+      {bool lastBorder = true, Color color = const Color(0xff475467)}) {
     return Column(
       children: [
         Row(
@@ -44,7 +45,7 @@ class CommonHelper {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      color: cc.greyFour,
+                      color: color,
                       fontSize: 14,
                       fontWeight: FontWeight.w400,
                     ),
@@ -57,7 +58,7 @@ class CommonHelper {
               child: Text(
                 text,
                 style: TextStyle(
-                  color: cc.greyFour,
+                  color: color,
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
                 ),

@@ -5,6 +5,8 @@ import 'package:nextgen/screens/anti_virus/widgets/all_antivirus.dart';
 import 'package:nextgen/screens/widgets/loading.dart';
 import 'package:provider/provider.dart';
 
+import '../widgets/drawer.dart';
+
 class AnitVirusScreen extends StatefulWidget {
   const AnitVirusScreen({Key? key}) : super(key: key);
 
@@ -33,6 +35,12 @@ class _AnitVirusScreenState extends State<AnitVirusScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("Anti Virus"),
+      ),
+      drawer: Drawer(
+        child: DrawerSheet(),
+      ),
       body: _loading
           ? const LoadingScreen()
           : AllAntiVirus(
