@@ -57,6 +57,7 @@ class AllOrderScreen extends StatelessWidget {
                         //         provider.topServiceMap[i]['serviceId']);
                       },
                       child: ServiceCard(
+                        status:data[index].status ,
                         name: data[index].name,
                         problem: data[index].mobile,
                         buttonText: 'View',

@@ -3,7 +3,6 @@ import 'package:nextgen/utils/colors.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 import '../../models/service_model.dart';
-import '../../utils/colors.dart';
 import '../widgets/app_bar.dart';
 
 class FullProfileDetails extends StatelessWidget {

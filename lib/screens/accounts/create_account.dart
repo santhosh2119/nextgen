@@ -11,7 +11,6 @@ class CreateAccount extends StatefulWidget {
 }
 
 class _CreateAccountState extends State<CreateAccount> {
-  @override
   final _formKey = GlobalKey<FormState>();
 
   TextEditingController emailController = TextEditingController();

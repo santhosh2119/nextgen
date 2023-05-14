@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:nextgen/landingScreen.dart';
+import 'package:nextgen/providers/service_completed_provider.dart';
+import 'package:nextgen/screens/auth/register.dart';
 import 'package:nextgen/screens/home/home.dart';
+import 'package:nextgen/screens/widgets/loading.dart';
+import 'package:provider/provider.dart';
 import '../../utils/colors.dart';
 import '../widgets/app_bar.dart';
 import '../widgets/custom_input.dart';
@@ -26,7 +31,36 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
 
   bool keepLoggedIn = true;
+   String error ='';
+   bool iserror= false;
+   bool isLoading= false;
 
+login(){
+  setState(() {
+     iserror= false;
+     isLoading = true;
+  });
+  final loginData = Provider.of<ServiceProvider>(context, listen:false).
+  login(emailController.text, passwordController.text).then((value) {
+    print(value);
+    if(value =="Invalid username or password"){
+      setState(() {
+        error = value;
+        iserror= true;
+        isLoading = false;
+      });
+    }else{
+      setState(() {
+          isLoading = false;
+      });
+ return Navigator.push(context, MaterialPageRoute(builder: (context){
+    return LandingScreen();
+  }));
+    }
+
+  });
+ 
+}
   @override
   Widget build(BuildContext context) {
     ConstantColors cc = ConstantColors();
@@ -205,63 +239,25 @@ class _LoginScreenState extends State<LoginScreen> {
                           )),
 
                       // =================>
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          //keep logged in checkbox
-                          Expanded(
-                            child: CheckboxListTile(
-                              checkColor: Colors.white,
-                              activeColor: ConstantColors().primaryColor,
-                              contentPadding: const EdgeInsets.all(0),
-                              title: Container(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 5),
-                                child: Text(
-                                  "Remember me",
+              iserror?   Center(
+                child: Text(
+                                error,
+                              
                                   style: TextStyle(
-                                      color: ConstantColors().greyFour,
+                                  
+                                      color: ConstantColors().primaryColor,
                                       fontWeight: FontWeight.w400,
+                                      
                                       fontSize: 14),
                                 ),
-                              ),
-                              value: keepLoggedIn,
-                              onChanged: (newValue) {
-                                setState(() {
-                                  keepLoggedIn = !keepLoggedIn;
-                                });
-                              },
-                              controlAffinity: ListTileControlAffinity.leading,
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          InkWell(
-                            onTap: () {},
-                            child: SizedBox(
-                              width: 122,
-                              child: Text(
-                                "Forgot Password?",
-                                style: TextStyle(
-                                    color: cc.primaryColor,
-                                    fontSize: 13,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
+              ):SizedBox(),
 
                       //Login button ==================>
                       const SizedBox(
                         height: 13,
                       ),
-                      CommonHelper().buttonOrange("Login", () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Home()));
+                     isLoading?LoadingScreen(): CommonHelper().buttonOrange("Login", () {
+                    login();
                       }),
                       //       .buttonOrange("Login", () {
                       // Consumer<LoginService>(
@@ -292,34 +288,35 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SizedBox(
                         height: 25,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          RichText(
-                            text: TextSpan(
-                              text: 'Don\'t have account?  ',
-                              style: const TextStyle(
-                                  color: Color(0xff646464), fontSize: 14),
-                              children: <TextSpan>[
-                                TextSpan(
-                                    // recognizer: TapGestureRecognizer(),
-                                    // ..onTap = () {
-                                    //   Navigator.push(
-                                    //       context,
-                                    //       MaterialPageRoute(
-                                    //           builder: (context) =>
-                                    //               const SignupPage()));
-                                    // },
-                                    text: 'Register',
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 14,
-                                      color: cc.primaryColor,
-                                    )),
-                              ],
+                      InkWell(
+                        onTap: (){
+                      
+                          Navigator.push(context, MaterialPageRoute(builder: (context){
+                            return RegisterScreen();
+                          }));
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RichText(
+                              text: TextSpan(
+                                text: 'Don\'t have account?  ',
+                                style: const TextStyle(
+                                    color: Color(0xff646464), fontSize: 14),
+                                children: <TextSpan>[
+                                  TextSpan(
+                                    
+                                      text: 'Register',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 14,
+                                        color: cc.primaryColor,
+                                      )),
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
 
                       // Divider (or)

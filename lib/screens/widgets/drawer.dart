@@ -1,11 +1,46 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:nextgen/landingScreen.dart';
 import 'package:nextgen/screens/dashboard/dashboard.dart';
 import 'package:nextgen/screens/home/home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../utils/colors.dart';
 
-class DrawerSheet extends StatelessWidget {
+class DrawerSheet extends StatefulWidget {
+  
   const DrawerSheet({Key? key}) : super(key: key);
+
+  @override
+  State<DrawerSheet> createState() => _DrawerSheetState();
+}
+
+class _DrawerSheetState extends State<DrawerSheet> {
+   String _userData = '';
+ Map<String, dynamic> parsedData = {};
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserData();
+  }
+Future<void> _loadUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String userData = prefs.getString('UserData') ?? '';
+    setState(() {
+      _userData = userData;
+      if (_userData.isNotEmpty) {
+        parsedData = json.decode(_userData);
+      }
+    });
+  }
+Future<void> _clearUserData(context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.clear();
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => LandingScreen()));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +53,7 @@ class DrawerSheet extends StatelessWidget {
             "assets/images/logo.png",
           ),
         ),
-        ListTile(
+      parsedData['userStatus'] =='1'?   ListTile(
           leading: const Icon(
             Icons.home,
           ),
@@ -27,11 +62,11 @@ class DrawerSheet extends StatelessWidget {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Home()));
           },
-        ),
-        Divider(
+        ):SizedBox(),
+        parsedData['userStatus'] =='1'?   Divider(
           color: Colors.black,
-        ),
-        ListTile(
+        ):SizedBox(),
+        parsedData['userStatus'] =='1'?   ListTile(
           leading: const Icon(
             Icons.currency_rupee,
           ),
@@ -40,10 +75,19 @@ class DrawerSheet extends StatelessWidget {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => Dashboard()));
           },
+        ):SizedBox(),
+       parsedData['userStatus'] =='1'?   Divider(
+          color: Colors.black,
+        ):SizedBox(),
+          ListTile(
+          leading: const Icon(
+            Icons.logout,
+          ),
+          title: const Text('LogOut'),
+          onTap:(){
+            _clearUserData(context);
+          }
         ),
-        // Divider(
-        //   color: Colors.black,
-        // )
       ],
     );
   }

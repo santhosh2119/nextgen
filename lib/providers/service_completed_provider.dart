@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:nextgen/models/anitvirus_model.dart';
 import 'package:nextgen/models/order_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../models/service_model.dart';
 import '../utils/apis.dart';
@@ -128,6 +129,75 @@ class ServiceProvider extends ChangeNotifier {
         notifyListeners();
         return searchList;
       }
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future login(email, password) async {
+    final url = Uri.parse(Api.login);
+    try {
+      final response = await http.post(url, body: {"email": email, "password": password});
+      final extractedData = json.decode(response.body) as Map<String, dynamic>;
+      if (extractedData['message'] == "Login successful") {
+
+          print(extractedData);
+        // for (int i = 0; i < extractedData['SearchList'].length; i++) {
+        //   _search.add(Service.fromJson(extractedData['SearchList'][i]));
+        // }
+
+        notifyListeners();
+
+        final prefs= await SharedPreferences.getInstance();
+        final userData = json.encode({
+
+          'userName':extractedData['user_name'],
+          'email':extractedData['email'],
+          'mobile':extractedData['mobile'],
+          'userStatus':extractedData['Userstatus'],
+          'designation':extractedData['designation'],
+        });
+        prefs.setString("UserData", userData);
+        print(prefs.setString("UserData", userData));
+        notifyListeners();
+      
+       
+      }
+       return extractedData['message'];
+    } catch (e) {
+      print(e);
+    }
+  }
+  Future mobileOtp(mobile) async {
+    final url = Uri.parse(Api.mobileOtp);
+    try {
+      final response = await http.post(url, body: {"mobile": mobile,});
+      final extractedData = json.decode(response.body) as Map<String, dynamic>;
+      if (extractedData['message'] == "Mobile number did not exists") {
+
+          print(extractedData);
+        // for (int i = 0; i < extractedData['SearchList'].length; i++) {
+        //   _search.add(Service.fromJson(extractedData['SearchList'][i]));
+        // }
+
+        notifyListeners();
+
+        // final prefs= await SharedPreferences.getInstance();
+        // final userData = json.encode({
+
+        //   'userName':extractedData['user_name'],
+        //   'email':extractedData['email'],
+        //   'mobile':extractedData['mobile'],
+        //   'userStatus':extractedData['Userstatus'],
+        //   'designation':extractedData['designation'],
+        // });
+        // prefs.setString("UserData", userData);
+        // print(prefs.setString("UserData", userData));
+        notifyListeners();
+      // return  extractedData['message'];
+       
+      }
+       return [extractedData['message'], extractedData['otp']];
     } catch (e) {
       print(e);
     }

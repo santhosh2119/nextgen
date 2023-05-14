@@ -1,0 +1,4 @@
+#Wed May 10 15:06:56 IST 2023
+base.0=F\:\\New folder\\nextgen\\build\\app\\intermediates\\dex\\release\\minifyReleaseWithR8\\classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

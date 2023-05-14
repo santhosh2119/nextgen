@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:nextgen/models/service_model.dart';
 import 'package:nextgen/providers/service_completed_provider.dart';
 import 'package:nextgen/screens/accounts/create_account.dart';
-import 'package:nextgen/screens/details/full_profile_details.dart';
 import 'package:nextgen/screens/widgets/app_bar.dart';
 import 'package:nextgen/screens/widgets/loading.dart';
 import 'package:nextgen/utils/colors.dart';

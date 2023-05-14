@@ -47,7 +47,7 @@ class CustomService extends StatelessWidget {
           margin: const EdgeInsets.only(top: 5),
           height: status
               ? MediaQuery.of(context).size.height * 0.9
-              : MediaQuery.of(context).size.height * 0.12,
+              : MediaQuery.of(context).size.height * 0.125,
           child: ListView.builder(
             scrollDirection: status ? Axis.vertical : Axis.horizontal,
             shrinkWrap: true,
@@ -72,9 +72,11 @@ class CustomService extends StatelessWidget {
                       //         provider.topServiceMap[i]['serviceId']);
                     },
                     child: ServiceCard(
+                      status:data[index].status ,
                       name: data[index].customerName,
                       problem: data[index].problem,
                       buttonText: 'View',
+                      home: true,
                       width: status
                           ? MediaQuery.of(context).size.width - 50
                           : MediaQuery.of(context).size.width - 80,
